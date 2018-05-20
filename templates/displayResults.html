@@ -1,0 +1,99 @@
+<html>
+	<head>
+	<title>Analysis of the given handle</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+                <style type="text/css">
+    * {
+      margin: 10;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #wrapper {
+      position: absolute;
+      overflow: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 5px solid black;
+    }
+    h1{
+  outline: 0;
+  background: white;
+  width: 100%;
+  border: 2;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-shadow: 1px 1px 1px #ccc;
+}
+  </style>
+		
+	</head>
+	<body background="{{ url_for('static',filename='blue2.png')}}" >
+            <div id="wrapper">
+            
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>5 most recent tweets : </u></font></h1></br>		
+                <h2 style="color:whitesmoke;font-size:1.2em"><font face="Rockwell, serif">
+                    <ul>{% if dummy %}
+			{% for x in dummy %}
+                        <li> {{x}}</li>
+                        </br></br>
+                        <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
+			{% endfor %}
+                        {% endif %}</font></ul></h2>
+		</br></br>
+                <hr style="height:30px;border:none;color:#333;background-color:black;"/>
+
+		
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>The top tweets are : </u></font></h1></br>		
+		<h2 style="color:whitesmoke;font-size:1.2em">
+                    <font face="Rockwell, serif">
+                    {% if topTweets %}
+			{% for y in topTweets %}
+                        <li>{{y}}</li></br></br>
+                        <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
+			{% endfor %}
+                        {% endif %}
+                        </font>
+                </h2>
+		</br></br>
+                <hr style="height:30px;border:none;color:#333;background-color:black;"/>
+		
+		
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>Sentiment Analysis data : </u></font></h1></br>		
+		<h2 style="color:whitesmoke;font-size:1.2em">
+                    <font face="Rockwell, serif">
+                    {% if sentimentAnalysis %}
+			{% for z in sentimentAnalysis %}
+                        <li>{{z}}</li></br></br>
+                        <hr style="height:2px;border:none;color:#333;background-color:#333;"/>
+			{% endfor %}
+                        {% endif %}</font></h2>		
+		</br></br><hr style="height:30px;border:none;color:#333;background-color:black;"/>
+
+		
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>Number of likes per tweet versus the Dates :</u></font></h1>
+                </br></br>
+                <center><img src="{{ url_for('static',filename='tfavplot.png') }}" border="5"></center>
+		</br></br><hr style="height:30px;border:none;color:#333;background-color:black;"/>
+	
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>Number of Retweets per tweet versus the Dates :</u></font></h1>
+		</br></br>
+                <center><img src="{{ url_for('static',filename='tretplot.png') }}" border="5"></center>
+		</br></br><hr style="height:30px;border:none;color:#333;background-color:black;"/>
+
+                <h1 style="color:black;align:centre;font-size:2.5em" align="center"><font face="Trebuchet MS, sans-serif"><u>Length of tweet versus the Dates :</u></font></h1>
+		</br></br>
+                <center><img src="{{ url_for('static',filename='tlenplot.png') }}" border="5"></center>
+		</br></br><hr style="height:30px;border:none;color:#333;background-color:black;"/>
+            </div>
+	</body>
+</html>
+

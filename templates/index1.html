@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Twitter Handle Analysis</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='main.css') }}">
+                <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      max-height: 100%;
+      overflow: hidden;
+    }
+
+    #wrapper {
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 5px solid black;
+    }
+    
+    
+  </style>
+	</head>
+	<body>
+		<div id="wrapper">
+                    
+                    <div class="login-page">
+                    
+                        <center><img src="{{ url_for('static',filename='tweet.svg') }}" alt="tweet" height="150" width="150"></center>
+                        <div class="form">
+    				<form class="login-form" method="POST" action="/processInput">
+                                    <h1>TWITTER SENTIMENT ANALYSIS</h1><br/><br/>
+
+      					<input type="text" placeholder="Twitter Handle" name="handle" />
+      					<input type="text" placeholder="# of most recent tweets" name="tweetCount" />
+      					<button>Perform Analysis</button>
+      				</form>
+  			</div>
+		</div>
+
+	<script src="{{ url_for('static',filename='index.js') }}"></script>
+                </div>
+	</body>
+	</html>
